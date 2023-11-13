@@ -10,7 +10,7 @@ def index():
 
 @app.route('/<path:filename>')
 def serve_file(filename):
-    root_dir = "/Users/venkatakesavvenna/Research/Annotation_Pipeline"  # Replace with the path to your files
+    root_dir = "/Users/venkatakesavvenna/Research/Annotation_Pipeline/"  # Replace with the path to your files
     return send_from_directory(root_dir, filename)
 
 if __name__ == '__main__':

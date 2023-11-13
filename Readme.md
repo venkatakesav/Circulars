@@ -1,14 +1,28 @@
 # Instructions for Using the Annotation Pipeline
 
+These are the instructions for using the Annotation Pipeline, with DocTR, for label-studio
+
 - This Consists of Three Scripts
-    1. setup.py - Sets up the JSONs required for the next steps. Such as configuring the links for the data and the rest
-    2. flask_s.py: Creates a Flask server that enables us to interact with the files in the given folder, this must be run, to access the files via label studio
+    1. DocTr.py:
+        - This file basically generates a JSON for the given dataset (with the OCR'ed outputs and bboxes) which is of the format of LabelStudio.
+        - It has the options for (First/Middle/Last) Pages, built in to it. 
+    2. Flask_S.py:
+        - This initiates a Flask server on the port of our choice, which in this case is 8081. This is required since, LabelStudio only accepts stuff in this format. 
+        - The Home Directory is the one mentioned in the flask_s.py, and all paths are constructed relative to it. (Can be accessed via localhost)
+    3. Label-Studio.py: 
+        - This is used to Set up the Annotation Pipeline, on label-studio. This is a one-time thing.
+        - Here as well you need to adjust the (First/Middle/Last) pages.
 
-    - Change
-        ### Now, Running Temp.py is enough
+- Always Have Three
 
-    - Will Updated the Instructions and readme later
+- How to start Annotating: 
+    0. Collect your Data, and store it in 3 folders
+        - First
+        - Middle
+        - Last
+    1. Run the Label-Studio.py Script, for all 3 folders
+    2. Run the Flask Script, to set up a Python Server. 
+    3. Run the Command, label-studio on your local system. 
 
-    3. label-studio.py: Configures individual projects by using the JSON's obtained from setup.py with the OCR output. 
-
-- Further Testing Is required
+- Points To Be Noted:
+    1. The Data Will Not Load Properly unless and until 
